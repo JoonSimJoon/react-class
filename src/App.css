@@ -1,32 +1,38 @@
 div.root{
-  height: 200px;
+
   border: black;
-  text-align: center;
 }
 div.root >div{
   display: flex;
   text-align: center;
-
 }
-header{
-  height: 200px;
-  background-color: red;
+div.root > header{
+  height: 100px;
+  display: flex;
+}
+div.root >header .left{
+  display: flex;
+  
+  width: 50%;
+  justify-content: flex-start;
+}
+div.root> header .right{
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
 }
 nav{
-  height: 100px;
-  background-color: royalblue;
+  height: 50%;
+
+  text-align: center;
 }
 section{
-  height: 400px;
-  width: 60%;
-  background-color: gray;
-}
-aside{
-  width: 40%;
-  height: 400px;
-  background-color: gainsboro;
+  height: 30%;
+  text-align: center;
 }
 footer{
-  height: 300px;
-  background-color: green;
+  background-color: rgba(0,0,0,.54);
+  opacity: 0.5;
+  justify-content: baseline;
+  
 }
