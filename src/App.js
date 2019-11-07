@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './App.css';
 
 function App(){
@@ -13,28 +14,31 @@ function App(){
         <div className="right">
           <div className="gmail">gmail</div>
           <div className="image">image</div>
-        
+          <div className="menu">menu</div>
+          <div className="user">J</div>
+          <img></img>
         </div>
+        
       </header>
       <nav >
-      <div className="icon">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></img>
-        </div>
+        <div className="NON"></div>
       </nav>
-      <div>
-       <section>
-         <div>
-         <div>
+      <div className="sec">
+        <section className="icon"> 
+          <div className="icon-out">
+            <div className="icon-in">
+             <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></img>
+         
+            </div>
           </div>
-         </div>
-         <div>
+        </section>
+       <section className="sb">
            <input
               type="text"
               align="center"
-              placeholder="search"
+              placeholder="Search"
+              className="searchbar"
             />
-         </div>
-       
        </section>
       </div>
       <footer>footer</footer>

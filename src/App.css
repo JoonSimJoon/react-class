@@ -1,36 +1,66 @@
-div.root{
-
-  border: black;
+html, body{
+  height: 100%;
 }
 div.root >div{
   display: flex;
   text-align: center;
 }
 div.root > header{
-  height: 100px;
+  height: 10%;
   display: flex;
+
 }
-div.root >header .left{
+div.root > header .left >div.about, div.store,div.user, div.menu,div.root > header .right >div.gmail, div.image{
+  margin: 10px 10px 10px 10px;
+}
+div.root >header .left {
   display: flex;
-  
   width: 50%;
   justify-content: flex-start;
+}
+div.root >header .right >div.user {
+  background-color: blue;
+  font-size: 10px;
+  color: white;
+  border: blue solid 7px;
+  border-radius: 50%;
 }
 div.root> header .right{
   display: flex;
   width: 50%;
   justify-content: flex-end;
+} 
+div.root>nav >div.NON{
+  width: 100%;
+  height: 300px;
 }
-nav{
-  height: 50%;
+div.root > div.sec{
+  display: inherit;
+  height: 300px;
+}
 
+div.root >section.icon{
   text-align: center;
+  width: 100%;
+  height: 300px;
 }
-section{
-  height: 30%;
-  text-align: center;
+div.root >section.icon>div .icon-out{
+  width: 100%;
+  height: 300px;
 }
-footer{
+div.root >section.icon>div.icon-out>div.icon-in{
+  bottom: 0px;
+  width: 100%;
+}
+div.root >section.sb >input.searchbar{
+  width: 300px;
+}
+
+
+div.root>footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: rgba(0,0,0,.54);
   opacity: 0.5;
   justify-content: baseline;
