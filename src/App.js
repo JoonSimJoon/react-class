@@ -1,49 +1,24 @@
 import React from 'react';
+import MyName from './MyName';
+import Mynum from './Mynum';
+import MyClub from './Myclub';
+import Student from './student';
 
-import './App.css';
 
-function App(){
-  return(
-    <div className="root">
-      <header>
-        <div className="left">
-          <div className="about">About  </div>
-          <div className="store">Store</div>
-
-        </div>
-        <div className="right">
-          <div className="gmail">gmail</div>
-          <div className="image">image</div>
-          <div className="menu">menu</div>
-          <div className="user">J</div>
-          <img></img>
-        </div>
-        
-      </header>
-      <nav >
-        <div className="NON"></div>
-      </nav>
-      <div className="sec">
-        <section className="icon"> 
-          <div className="icon-out">
-            <div className="icon-in">
-             <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></img>
-         
-            </div>
-          </div>
-        </section>
-       <section className="sb">
-           <input
-              type="text"
-              align="center"
-              placeholder="Search"
-              className="searchbar"
-            />
-       </section>
-      </div>
-      <footer>footer</footer>
-    </div>
-  );
+class App extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <React.Fragment> {/*<></>도 사용 가능*/}
+        <Student name="sim joon" num="01097557267" club="als"></Student>
+        <hr></hr>
+       <MyName name="wesley"></MyName>
+       <Mynum num="10516"></Mynum>
+       <MyClub club="jungol"></MyClub>
+      </React.Fragment>
+    )
+  }
 }
-
-export default App;
+export default App; 
