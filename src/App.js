@@ -1,24 +1,60 @@
 import React from 'react';
-import MyName from './MyName';
-import Mynum from './Mynum';
-import MyClub from './Myclub';
-import Student from './student';
+import TodoItem from './TodoItem';
+import { stat } from 'fs';  
+import styled, { css } from 'styled-components';
+
+const Head = styled.div`  
+  
+  font-size:40px;
+  color:white;
+  background-color:#01DF3A;
+  border:3px solid black;
+`
+
+const Add = styled.button`
+  justify-content:center
+  background-color:white;
+  color:black;
+`
 
 
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
+
+    this.state={
+      items:[],
+      value :""
+    };
   }
-  render(){
-    return(
-      <React.Fragment> {/*<></>도 사용 가능*/}
-        <Student name="sim joon" num="01097557267" club="als"></Student>
-        <hr></hr>
-       <MyName name="wesley"></MyName>
-       <Mynum num="10516"></Mynum>
-       <MyClub club="jungol"></MyClub>
+  onClickAdd = e => {
+    const items = this.state.items;
+    items.push(this.state.value);
+    this.setState({
+      items,
+    });
+  };
+  onChange = e => {
+    this.setState({ value: e.target.value });
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <header>
+          <Head>10516 심준 Todolist</Head>
+        </header>
+        <section>
+          <input type='text' onChange={this.onChange}/>
+          <Add onClick={this.onClickAdd}>추가</Add>
+          {this.state.items.map((value, idx) => (
+            <TodoItem key={idx} value={value} />
+          ))}
+        </section>
+        
       </React.Fragment>
-    )
+    );
   }
 }
-export default App; 
+
+
+export default App;
