@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
-const Btt = styled.button`
-  color:white;
-  background-color:black;
-`
+// Counter.jsx
+import React, { Component } from "react";
+import styled from "styled-components";
 
+const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+`;
 
 class TodoItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       value: this.props.value,
-      show: true,
+      items: props.items
     };
   }
 
   onClickChange = e => {
-    const change = prompt('수정');
+    const change = prompt("바꿀 값");
     this.setState({ value: change });
-  };
-  onClickDelete = e => {
-    this.setState({ show: false });
   };
 
   render() {
     return (
-      <div style={{ display: this.state.show ? 'block' : 'none' }}>
+      <Div>
         <span>{this.state.value}</span>
-        <Btt onClick={this.onClickChange}>수정</Btt>
-        <Btt onClick={this.onClickDelete}>삭제</Btt>
-      </div>
+        <button onClick={this.onClickChange}>수정</button>
+        <button onClick={this.props.onClickDel}>삭제</button>
+      </Div>
     );
   }
 }
