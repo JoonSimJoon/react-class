@@ -1,88 +1,25 @@
 import React from "react";
-//import MyName from './MyName';
-//import Student from './Student';
-//import Counter from './Counter';
-import TodoItem from "./TodoItem";
-import styled from "styled-components";
+import { ReadStream } from "fs";
 
-const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 150px;
-  margin-right: 150px;
-`;
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      value: ""
-    };
-  };
-
-onClickMod = (value,idx) => {
-  const newItems = [
-    ...this.state.items.slice(0,idx),
-    value,
-    ...this.state.items.slice(idx+1)
-
-  ];
-  this.setState({items: newItems});
-};
-
-  onChange = e => {
-    this.setState({ value: e.target.value });
-  };
-
-  onClickAdd = e => {
-    const items = this.state.items;
-    items.push(this.state.value);
-    this.setState({
-      items
-    });
-  };
-
-  onClickDel = idx => {
-    const newItems = [...this.state.items];
-    newItems.splice(idx, 1);
-    this.setState({ items: newItems });
-    console.log(idx);
-  };
-
-  render() {
-    return (
-      <>
-        <Div>
-          <input
-            type="text"
-            onChange={this.onChange}
-            style={({ border: "1px solid black" }, { height: "20px" })}
-          />
-          <button
-            onClick={this.onClickAdd}
-            style={({ border: "none" }, { color: "black" })}
-          >
-            추가
-          </button>
-
-          {this.state.items.map((value, idx) => (
-            <TodoItem
-              onClickDel={() => this.onClickDel(idx)}
-              key={Math.random() + idx}
-              onClickMod={() => {
-                const value = prompt("입력");
-                this.onClickMod(value,idx);
-              }}
-              value={value}
-              className="list"
-            />
-          ))}
-        </Div>
-      </>
-    );
+const App = () =>{
+  const [name,setname]= React.useState("");
+  const [color,setcolor] = React.useState([0,0,0]);
+  React.useEffect(()=>{
+    setcolor(randcolor());
+  },[name]);
+  const randcolor=()=>{
+    return [Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.random()*255)];
   }
-}
 
+  return(
+    <div className="root">
+      <input
+        type="text"
+        placeholder="name"
+        onChange={e=>setname(e.target.value)}
+      />
+    <div style={{color:`rgb(${color[0]},${color[1]},${color[2]})`}}>name:{name}</div>
+    </div>
+  )
+};
 export default App;
